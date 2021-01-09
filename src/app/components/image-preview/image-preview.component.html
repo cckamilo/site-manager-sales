@@ -1,0 +1,50 @@
+<div class="row" *ngIf="!product; else main_content">
+<h1>cargando..</h1>
+</div>
+
+<ng-template #main_content>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <img [src]="product.urlMain" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="card">
+                <form class="card-body" (submit)="updateFile(title, price.value, quantity.value, size, description)">
+                    <div class="form-group">
+                       <input type="text" class="form-control" 
+                        placeholder="title" [value]= "product.title" #title>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" 
+                            placeholder="price" [value]="product.price" #price>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" 
+                            placeholder="quantity" [value]="product.quantity" #quantity>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" 
+                            placeholder="size" [value]="product.size" #size>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" 
+                            placeholder="description" [value]="product.description" #description>
+                    </div>
+                    <button class="btn btn-primary btn-block">
+                        Update
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-danger" (click)="deleteFile(product.id)">
+        Delete
+    </button>
+</ng-template>
+
+
+
+
+

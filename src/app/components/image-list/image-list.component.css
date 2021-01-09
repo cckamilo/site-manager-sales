@@ -1,0 +1,8 @@
+.card-photo{
+    cursor: pointer;
+
+}
+
+.card-photo:hover{
+    border: 2px solid red;
+}

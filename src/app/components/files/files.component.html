@@ -1,0 +1,59 @@
+<div class="container">
+  <mat-card>
+ 
+    <form [formGroup]="user" (ngSubmit)="submitForm()" action="">
+      <mat-horizontal-stepper formArrayName="userDetails" linear>
+        <mat-step formGroupName="0" label="Categorias" [stepControl]="userDetails.get([0])">
+          <mat-checkbox color="primary" formControlName="cbCamisetas">Camisetas</mat-checkbox><br>
+          <mat-form-field>
+            <input matInput formControlName="titulo" placeholder="Titulo">
+          
+          </mat-form-field><br>
+          <mat-form-field>
+            <textarea matInput formControlName="description" placeholder="Descripcion"></textarea>
+          </mat-form-field><br>
+          <button mat-raised-button class="btnStep1" color="primary" matStepperNext type="button">Continuar</button>
+        </mat-step>
+        <mat-step formGroupName="1" label="Archivos" [stepControl]="userDetails.get([1])">
+          <table cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field>        
+                  <input matInput formControlName="talla" placeholder="Talla">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <input matInput formControlName="cantidad" placeholder="Cantidad">
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>     
+          <div class="input-group">
+            <div class="">
+              <input type="file" class="d-none" (change)="onFileSelected($event)" #photoInput>
+              <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" width="100px" alt="no-image"
+                (click)="photoInput.click()">
+            </div>
+            <div class="">
+              <input type="file" class="d-none" (change)="onFileSelectedTwo($event)" #photoInpuTwo>
+              <img [src]="photoSelectedTwo || 'assets/no-image.png'" class="img-fluid" width="100px" alt="no-image"
+                (click)="photoInpuTwo.click()">
+            </div>
+          </div>
+          <button mat-raised-button color="primary" class="btnStep2" matStepperNext type="button">Continuar</button>
+          <button mat-raised-button color = "warn" class="btnStep2" matStepperPrevious type="button">Atras</button>  
+        </mat-step>
+        <mat-step formGroupName="2" label="Precios">
+          <mat-form-field>
+            <input matInput formControlName="precio" placeholder="Precio ($)">
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit" class="btnStep2" [disabled]="userDetails.invalid">Guardar</button>
+          <button mat-raised-button color = "warn" class="btnStep2" matStepperPrevious type="button">Atras</button>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </form>
+  
+   
+  </mat-card>
+</div>
