@@ -1,0 +1,21 @@
+.login-form{
+    padding: 6rem 1rem;
+
+   
+}
+
+mat-card {
+    max-width: 400px;
+    margin: 2rem auto;
+    text-align: center;
+    height: 400px;
+
+}
+
+.full-width-input, button{
+    width: 100%;
+}
+
+.separator{
+    margin-bottom: 2rem;
+}

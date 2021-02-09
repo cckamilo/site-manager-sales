@@ -11,7 +11,8 @@ export const environment = {
     storageBucket: "site-manager-16b0e.appspot.com",
     messagingSenderId: "424821010960",
     appId: "1:424821010960:web:7656a0d1f5c1ae594b1095"
-  }
+  },
+  API_URL: "https://sitemanagermarket.azurewebsites.net"
 };
 
 /*

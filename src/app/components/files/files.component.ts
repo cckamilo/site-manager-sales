@@ -91,7 +91,7 @@ export class FilesComponent implements OnInit{
       fd.append("size",this.userDetails.value[1].talla);
       fd.append("quantity",this.userDetails.value[1].cantidad);
       fd.append("price",this.userDetails.value[2].precio);
-  
+      console.log(fd)
       this.http.post("https://sitemanagermarket.azurewebsites.net/api/v1/products", fd)
       .subscribe(res => {
          this.router.navigate(['/image-list'])

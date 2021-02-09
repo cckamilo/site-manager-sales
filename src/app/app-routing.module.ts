@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ImageListComponent } from './components/image-list/image-list.component';
 import { ImagePreviewComponent } from './components/image-preview/image-preview.component';
 import { FilesComponent } from './components/files/files.component';
+import { CheckLoginGuard } from './shared/guards/check-login.guard';
 
 const routes: Routes = [
   {
@@ -21,7 +22,17 @@ const routes: Routes = [
     path: '',
     redirectTo: '/image-list',
     pathMatch: 'full'
-  }
+  },
+  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
+  { path: 'notFound', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
+  { path: 'admin', 
+  loadChildren: () => 
+  import('./pages/admin/admin.module').then(m => m.AdminModule) },
+  { path: 'login', 
+  loadChildren: () => 
+  import('./pages/auth/login/login.module').then(m => m.LoginModule),
+  canActivate: [CheckLoginGuard]
+ }
 
 
 

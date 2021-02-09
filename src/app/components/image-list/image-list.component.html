@@ -1,11 +1,12 @@
 <div class="row">
     <div class="col-md-4 p-4" *ngFor="let i of arr">
         <div class="card card-photo" (click)="selectedImage(i.id)">
-            <img src="{{ i.urlMain }}"  class="img-card-top w-100">
-            <div class="card-body">
-                {{i.title}} <br>
-                {{i.price}}
-            </div>
+            <img src="{{ i.urlMain }}"  class="img-fluid w-100">
+            <br>         
         </div>
+        <br>
+        <p class="card-text">{{i.title}}</p>
+        <p class="card-text">{{i.price}}</p>
     </div>
 </div>
+

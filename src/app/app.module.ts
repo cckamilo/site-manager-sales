@@ -2,31 +2,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FilesComponent } from './components/files/files.component';
 import { HttpClientModule } from '@angular/common/http'
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { NavigationComponent } from './components/navigation/navigation.component';
+//modules
+import { MaterialModule } from './material.module';
+//componentes
+import { AppComponent } from './app.component';
+import { FilesComponent } from './components/files/files.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 import { ImagePreviewComponent } from './components/image-preview/image-preview.component';
 import { ImageListComponent } from './components/image-list/image-list.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInputModule } from '@angular/material/input';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { UtilsService } from './shared/services/utils.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FilesComponent,
-    NavigationComponent,
     ImagePreviewComponent,
     ImageListComponent,
-
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent
   ],
   imports: [
 
@@ -36,17 +38,13 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     CommonModule,
     MatStepperModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
+    BrowserAnimationsModule,   
     ReactiveFormsModule,  
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatInputModule
+    MaterialModule
+   
 
   ],
-  providers: [],
+  providers: [UtilsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
