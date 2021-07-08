@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http'
+
 import { MatStepperModule } from '@angular/material/stepper';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +18,8 @@ import { ImagePreviewComponent } from './components/image-preview/image-preview.
 import { ImageListComponent } from './components/image-list/image-list.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UtilsService } from './shared/services/utils.service';
+import { AdminInterceptor } from './shared/Interceptors/admin-interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { UtilsService } from './shared/services/utils.service';
    
 
   ],
-  providers: [UtilsService],
+  providers: [UtilsService,{provide:HTTP_INTERCEPTORS,
+  useClass:AdminInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,56 @@
+
+<div class="modal-form">
+    <form [formGroup]="productForm.baseForm">
+        <mat-form-field class="full-width-input">
+            <input 
+            formControlName ="title"
+            matInput 
+            placeholder="Title" 
+            required>
+            <mat-error *ngIf="checkField('title')">
+                {{ productForm.errorMessage }}
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="full-width-input">
+            <textarea formControlName ="description"
+            matInput 
+            placeholder="Description" 
+            required></textarea>
+            <mat-error *ngIf="checkField('description')">
+                {{ productForm.errorMessage }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+            <mat-label>Select</mat-label>
+            <mat-select  formControlName ="size">
+                <mat-option value="XS">XS</mat-option>
+                <mat-option value="S">S</mat-option>
+                <mat-option value="M">M</mat-option>
+                <mat-option value="L">L</mat-option>
+                <mat-option value="XL">XL</mat-option>
+                <mat-option value="XXL">XXL</mat-option>
+            </mat-select>
+            <mat-error *ngIf="checkField('size')">
+                {{ productForm.errorMessage }}
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="full-width-input" >
+            <input 
+            formControlName ="price"
+            type="number"
+            matInput 
+            class="example-right-align" 
+            placeholder="Price"
+            required>
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+            <mat-error *ngIf="checkField('price')">
+                {{ productForm.errorMessage }}
+            </mat-error>
+        </mat-form-field>
+
+    </form>
+</div>

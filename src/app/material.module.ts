@@ -9,6 +9,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 
 const myModules = [
@@ -21,7 +26,13 @@ const myModules = [
     MatCardModule,
     MatSidenavModule,
     MatMenuModule,
-    MatListModule];
+    MatListModule,
+    MatTableModule,
+    MatSortModule,
+    MatDialogModule,
+    MatOptionModule,
+    MatSelectModule
+];
 
 @NgModule({
 imports:[ ... myModules],
